@@ -11,14 +11,15 @@ async function fetchGitHub() {
   do {
     const response = await fetch(`${MAIN_API_URL}?page=${pageWeAreOn}`);
     const jobs = await response.json();
-    allJobs.push(jobs);
+    // spread the array so allJobs doesn't become an array of arrays,
+    // since jobs is itself an array:
+    allJobs.push(...jobs); 
     currentPageJobCount = jobs.length;
-    totalJobCount += currentPageJobCount;
     console.log('got', currentPageJobCount, 'jobs');
     pageWeAreOn++;
   } while (currentPageJobCount === 50);
 
-  console.log('got total', totalJobCount, 'jobs');
+  console.log('got total', allJobs.length, 'jobs');
 }
 
 fetchGitHub();
