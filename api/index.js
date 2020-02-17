@@ -3,8 +3,22 @@ const express = require('express');
 const app = express();
 const port = 3001;
 
-app.get('/jobs', (req, res) => { 
-  res.send('Hello World!');
+const redis = require('redis');
+const client = redis.createClient();
+
+const { promisify } = require("util");
+const getAsync = promisify(client.get).bind(client); // Get jobs from redis.
+// const setAsync = promisify(client.set).bind(client); // Add jobs to redis.
+
+app.get('/jobs', async (req, res) => { 
+  const jobs = await getAsync('github').catch((e) => console.log('Error: ', e.message));
+  // console.log(JSON.parse(jobs).length);
+  return res.send(jobs);
+});
+
+// catch-all
+app.get('*', (req, res) => {
+  res.send('404 Not Found');
 });
 
 app.listen(port, () => console.log(`Job app server listening on port ${port}!`));
