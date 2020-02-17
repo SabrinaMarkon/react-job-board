@@ -9,8 +9,8 @@ async function fetchGitHub() {
   const allJobs = [];
   
   do {
-    const response = await fetch(`${MAIN_API_URL}?page=${pageWeAreOn}`);
-    const jobs = await response.json();
+    const response = await fetch(`${MAIN_API_URL}?page=${pageWeAreOn}`).catch(e => console.log('Error: ', e.message));;
+    const jobs = await response.json().catch(e => console.log('Error: ', e.message));;
     // spread the array so allJobs doesn't become an array of arrays,
     // since jobs is itself an array:
     allJobs.push(...jobs); 
