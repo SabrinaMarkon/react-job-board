@@ -15,22 +15,39 @@ async function fetchGitHub() {
   let currentPageJobCount, pageWeAreOn = 0, totalJobCount = 0;
   const allJobs = [];
   
+  // Fetch all the pages.
   do {
-    const response = await fetch(`${MAIN_API_URL}?page=${pageWeAreOn}`).catch(e => console.log('Error: ', e.message));;
-    const jobs = await response.json().catch(e => console.log('Error: ', e.message));;
+    const response = await fetch(`${MAIN_API_URL}?page=${pageWeAreOn}`).catch(e => console.log('Error: ', e.message));
+    const jobs = await response.json().catch(e => console.log('Error: ', e.message));
     // spread the array so allJobs doesn't become an array of arrays,
     // since jobs is itself an array:
-    allJobs.push(...jobs); 
+    allJobs.push(...jobs);
     currentPageJobCount = jobs.length;
     console.log('got', currentPageJobCount, 'jobs');
     pageWeAreOn++;
   } while (currentPageJobCount === 50);
 
   console.log('got total', allJobs.length, 'jobs');
+
+  // Filter results.
+  const juniorJobs = allJobs.filter(job => {
+    const jobTitle = job.title.toLowerCase();
+    if (
+      jobTitle.includes('senior') ||
+      jobTitle.includes('sr.') ||
+      jobTitle.includes('manager') ||
+      jobTitle.includes('architect')
+    ) {
+      return false;
+    }
+    return true;
+  })
+
+  console.log('Filtered down to', juniorJobs.length, 'junior level jobs');
   const success = await setAsync('github', JSON.stringify(allJobs));
   console.log(success);
 }
 
-// fetchGitHub();
+// fetchGitHub(); // Called in worker/index.js cronjob.
 
 module.exports = fetchGitHub;
