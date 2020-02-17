@@ -1,2 +1,18 @@
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import Job from './Job.js';
 
+export default function Jobs({jobs}) {
+  return (
+    <div className="jobs">
+      <Typography variant="h3">
+        Entry Level Software Jobs for UoPeople Students and Grads
+      </Typography>
+      {
+        jobs.map(
+          job => <Job job={job} />
+        )
+      }
+    </div>
+  );
+}
