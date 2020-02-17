@@ -1,0 +1,32 @@
+{
+  "name": "react-job-board",
+  "version": "1.0.0",
+  "description": "Job search app to help entry level software engineers and developers to find their first job.",
+  "main": "index.js",
+  "dependencies": {
+    "cron": "^1.8.2",
+    "eslint": "^6.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SabrinaMarkon/react-job-board.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "redis",
+    "cron",
+    "node",
+    "express"
+  ],
+  "author": "Sabrina Markon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SabrinaMarkon/react-job-board/issues"
+  },
+  "homepage": "https://github.com/SabrinaMarkon/react-job-board#readme"
+}
