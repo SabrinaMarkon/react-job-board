@@ -4,8 +4,10 @@ const redis = require('redis');
 const client = redis.createClient();
 
 const { promisify } = require("util");
-// const getAsync = promisify(client.get).bind(client); // Get jobs from redis.
-const setAsync = promisify(client.set).bind(client); // Add jobs to redis.
+// const getAsync = promisify(client.get).bind(client); // GET jobs from redis.
+// The node utility promisify converts the client.set (which is async) operation 
+// to a promise so we can make sure code runs in the order we want it to.
+const setAsync = promisify(client.set).bind(client); // Add jobs to redis (SET).
 
 // With no query string parameters, the default is the first 50 jobs.
 const MAIN_API_URL = 'https://jobs.github.com/positions.json';
@@ -18,7 +20,7 @@ async function fetchGitHub() {
   // Fetch all the pages.
   do {
     const response = await fetch(`${MAIN_API_URL}?page=${pageWeAreOn}`).catch(e => console.log('Error: ', e.message));
-    const jobs = await response.json();
+    const jobs = await response.json().catch(e => console.log('Error:', e.message));
     // spread the array so allJobs doesn't become an array of arrays,
     // since jobs is itself an array:
     allJobs.push(...jobs);
@@ -32,16 +34,21 @@ async function fetchGitHub() {
   // Filter results.
   const juniorJobs = allJobs.filter(job => {
     const jobTitle = job.title.toLowerCase();
+    const jobDescription = job.description.toLowerCase();
     if (
       jobTitle.includes('senior') ||
       jobTitle.includes('sr.') ||
       jobTitle.includes('manager') ||
-      jobTitle.includes('architect')
+      jobTitle.includes('architect') ||
+      jobDescription.includes('senior') ||
+      jobDescription.includes('sr.') ||
+      jobDescription.includes('manager') ||
+      jobDescription.includes('architect')
     ) {
       return false;
     }
     return true;
-  })
+  });
 
   console.log('Filtered down to', juniorJobs.length, 'junior level jobs');
   const success = await setAsync('github', JSON.stringify(allJobs));

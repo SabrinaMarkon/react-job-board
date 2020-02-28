@@ -8,7 +8,7 @@ const client = redis.createClient();
 
 const { promisify } = require("util");
 const getAsync = promisify(client.get).bind(client); // Get jobs from redis.
-// const setAsync = promisify(client.set).bind(client); // Add jobs to redis.
+// const setAsync = promisify(client.set).bind(client); // Add jobs to redis (SET).
 
 app.get('/jobs', async (req, res) => { 
   const jobs = await getAsync('github').catch((e) => console.log('Error: ', e.message));
