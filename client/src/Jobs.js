@@ -6,7 +6,7 @@ export default function Jobs({jobs}) {
   return (
     <div className="jobs">
       <Typography variant="h3">
-        Entry Level Software Jobs for UoPeople Students and Grads
+        Entry Level Software Jobs for UoPeople Students
       </Typography>
       {
         jobs.map(
