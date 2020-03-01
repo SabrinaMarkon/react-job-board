@@ -23,7 +23,7 @@ function App() {
   }
 
   useEffect((jobsList) => {
-    fetchJobs(jobsList);
+    fetchJobs(jobsList).catch(e => console.log(`Error with fetchJobs call: ${e}`));
   }, []);
 
   return (
