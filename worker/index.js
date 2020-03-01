@@ -7,5 +7,5 @@ const fetchGitHub = require('./tasks/fetch-github');
 // const fetchStackOverflow = '';
 
 // All cronjobs can run in parallel and are independent of one another.
-const job = new CronJob('0 */5 * * * *', fetchGitHub, null, true, 'America/Edmonton');
+const job = new CronJob('0 */5 * * * *', fetchGitHub().catch(e => console.log(e)), null, true, 'America/Edmonton');
 job.start();
