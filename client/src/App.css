@@ -1,14 +1,37 @@
-.App {
+body {
+  margin: 20px 40px;
+}
+
+/* .App {
   text-align: center;
 }
 
 .App-link {
   color: #61dafb;
+} */
+
+.jobbox {
+  text-align: left;
 }
 
 .job {
-  width: 80%;
-  margin: auto;
+  /* width: 80%; */
+  margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 20px 10px;
+  align-items: center;
+}
+
+.job:hover {
+  cursor: pointer;
+}
+
+.job-company {
+  padding: 0 30px;
+}
+
+.job-dialog {
+  padding: 30px 50px;
 }
