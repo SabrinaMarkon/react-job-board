@@ -13,6 +13,7 @@ const getAsync = promisify(client.get).bind(client); // Get jobs from redis.
 app.get('/jobs', async (req, res) => { 
   const jobs = await getAsync('github').catch((e) => console.log('Error: ', e.message));
   // console.log(JSON.parse(jobs).length);
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // CORS.
   return res.send(jobs);
 });
 

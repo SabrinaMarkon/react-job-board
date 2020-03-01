@@ -45,6 +45,7 @@ async function fetchGitHub() {
       jobDescription.includes('manager') ||
       jobDescription.includes('architect')
     ) {
+      console.log(jobTitle);
       return false;
     }
     return true;

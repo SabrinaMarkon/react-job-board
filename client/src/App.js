@@ -10,20 +10,21 @@ const JOB_API_URL = 'http://localhost:3001/jobs';
 //   {title: 'UI/UX Designer', company: 'GitHub'}
 // ];
 
+async function fetchJobs(callbackSetJobsList) {
+  const response = await fetch(JOB_API_URL);
+  const json = await response.json();
+  // console.log(json);
+  callbackSetJobsList(json);
+}
+
 // App component will hold state.
 function App() {
 
   const [jobsList, setJobsList] = useState([]);
 
-  async function fetchJobs(newJobsList) {
-    const response = await fetch(JOB_API_URL);
-    const json = await response.json();
-    console.log(json);
-    setJobsList(newJobsList);
-  }
-
-  useEffect((jobsList) => {
-    fetchJobs(jobsList).catch(e => console.log(`Error with fetchJobs call: ${e}`));
+  useEffect(() => {
+    fetchJobs(setJobsList).catch(e => 
+      console.log(`Error with fetchJobs call: ${e}`));
   }, []);
 
   return (

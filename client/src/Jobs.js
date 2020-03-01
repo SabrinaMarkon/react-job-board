@@ -4,7 +4,7 @@ import Job from './Job.js';
 
 export default function Jobs({jobs}) {
   return (
-    <div className="jobs">
+    <div className="  ">
       <Typography variant="h3">
         Entry Level Software Jobs for UoPeople Students
       </Typography>
