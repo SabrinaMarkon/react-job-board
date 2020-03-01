@@ -10,7 +10,7 @@ export default function Jobs({jobs}) {
       </Typography>
       {
         jobs.map(
-          (job, i) => <Job key={i} job={job} />
+          (job, i) => <Job key={i} job={job} id={i} />
         )
       }
     </div>

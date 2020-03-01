@@ -19,7 +19,7 @@ async function fetchGitHub() {
   // Fetch all the pages.
   do {
     const response = await fetch(`${MAIN_API_URL}?page=${pageWeAreOn}`).catch(e => console.log('Error with fetch() call: ', e.message));
-    // console.log(`------------------------------------------------start\n${response}\n--------------------------------------------done`)
+    console.log(`------------------------------------------------start\n${response}\n--------------------------------------------done`)
     const jobs = await response.json().catch(e => console.log('Error with response.json() call: ', e.message));
     // spread the array so allJobs doesn't become an array of arrays,
     // since jobs is itself an array:
