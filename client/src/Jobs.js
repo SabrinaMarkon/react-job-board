@@ -8,6 +8,9 @@ import Job from "./Job.js";
 
 export default function Jobs({ jobs }) {
   const [activeStep, setActiveStep] = React.useState(0);
+  const JOBS_PER_PAGE = 50;
+  const totalJobs = jobs.length;
+  const totalPages = Math.ceil(totalJobs/JOBS_PER_PAGE);
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
@@ -22,16 +25,22 @@ export default function Jobs({ jobs }) {
       <Typography variant="h3" component="h1">
         Entry Level Software Jobs for UoPeople Students
       </Typography>
+      <Typography variant="h6" component="h2">
+        Found {totalJobs} Jobs
+      </Typography>
       {jobs.map((job, i) => (
         <Job key={i} job={job} id={i} />
       ))}
+      <div>
+        Page {activeStep + 1} of {totalPages}
+      </div>
       <MobileStepper
         variant="progress"
-        steps={6}
+        steps={totalPages}
         position="static"
         activeStep={activeStep}
         nextButton={
-          <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
+          <Button size="small" onClick={handleNext} disabled={totalPages === activeStep + 1}>
             Next
             <KeyboardArrowRight />
           </Button>
