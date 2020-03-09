@@ -7,6 +7,7 @@ In the root of the project:
 npm install cron
 npm install redis
 npm install express
+npm install @material-ui/icons
 
 In /client, install MaterialUI:
 // with npm
