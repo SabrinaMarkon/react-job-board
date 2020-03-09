@@ -3,6 +3,9 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 export default function Job({id,job}) {
+  let createdArray = job.created_at.split(' ');
+  createdArray.splice(3, 2);
+  let createdDate = createdArray.join(' ');
   return (
     <Paper className={'job'}>
       <div className="jobbox">
@@ -12,9 +15,7 @@ export default function Job({id,job}) {
         <Typography>{job.location}</Typography>
       </div>
       <div>
-        <Typography>
-          {job.created_at.split(' ').slice(0, 4).join(' ')}
-        </Typography> 
+        <Typography>{createdDate}</Typography> 
       </div>
     </Paper>
   )
