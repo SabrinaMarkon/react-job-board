@@ -2,7 +2,7 @@
 const fetch = require('node-fetch');
 const redis = require('redis');
 const client = redis.createClient();
-const { promisify } = require("util");
+const { promisify } = require("util"); // converts callbacks to promises.
 // const getAsync = promisify(client.get).bind(client); // GET jobs from redis.
 // The node utility promisify converts the client.set (which is async) operation 
 // to a promise so we can make sure code runs in the order we want it to.
@@ -19,7 +19,6 @@ async function fetchGitHub() {
   // Fetch all the pages.
   do {
     const response = await fetch(`${MAIN_API_URL}?page=${pageWeAreOn}`).catch(e => console.log('Error with fetch() call: ', e.message));
-    console.log(`------------------------------------------------start\n${response}\n--------------------------------------------done`)
     const jobs = await response.json().catch(e => console.log('Error with response.json() call: ', e.message));
     // spread the array so allJobs doesn't become an array of arrays,
     // since jobs is itself an array:
@@ -29,7 +28,7 @@ async function fetchGitHub() {
     pageWeAreOn++;
   } while (currentPageJobCount === 50);
 
-  console.log('got total', allJobs.length, 'jobs');
+  console.log('\ngot total', allJobs.length, 'jobs');
 
   // Filter results.
   const juniorJobs = allJobs.filter(job => {
