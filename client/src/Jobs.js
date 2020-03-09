@@ -11,6 +11,8 @@ export default function Jobs({ jobs }) {
   const JOBS_PER_PAGE = 50;
   const totalJobs = jobs.length;
   const totalPages = Math.ceil(totalJobs/JOBS_PER_PAGE);
+  // Get the job records that should appear on the current (activeStep #) page.
+  const currentJobsOnPage = jobs.slice(activeStep * 50, activeStep * 50 + 50);
 
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
@@ -28,7 +30,7 @@ export default function Jobs({ jobs }) {
       <Typography variant="h6" component="h2">
         Found {totalJobs} Jobs
       </Typography>
-      {jobs.map((job, i) => (
+      {currentJobsOnPage.map((job, i) => (
         <Job key={i} job={job} id={i} />
       ))}
       <div>
