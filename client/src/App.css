@@ -2,30 +2,23 @@ body {
   margin: 20px 40px;
 }
 
-/* .App {
-  text-align: center;
-}
-
-.App-link {
-  color: #61dafb;
-} */
-
 .jobbox {
   text-align: left;
 }
 
 .job {
-  /* width: 80%; */
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
   padding: 20px 10px;
   align-items: center;
+  color: #393939;
 }
 
 .job:hover {
   cursor: pointer;
+  color: #666666;
 }
 
 .job-company {
