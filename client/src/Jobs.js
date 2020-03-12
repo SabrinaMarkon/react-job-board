@@ -8,6 +8,7 @@ import Job from "./Job";
 import JobModal from './JobModal';
 
 export default function Jobs({ jobs }) {
+  
   // Pagination:
   const [activeStep, setActiveStep] = React.useState(0);
   const JOBS_PER_PAGE = 50;
@@ -24,7 +25,7 @@ export default function Jobs({ jobs }) {
 
   // Modal:
   const [open, setOpen] = React.useState(false);
-  const [selectedJob, setSelectedJob] = React.useState();
+  const [selectedJob, selectJob] = React.useState({});
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -34,15 +35,20 @@ export default function Jobs({ jobs }) {
 
   return (
     <div className="App">
-      <JobModal />
+      <JobModal open={open} job={selectedJob} handleClose={handleClose} />
       <Typography variant="h3" component="h1">
         Entry Level Software Jobs for UoPeople Students
       </Typography>
       <Typography variant="h6" component="h2">
         Found {totalJobs} Jobs
       </Typography>
-      {currentJobsOnPage.map((job, i) => (
-        <Job key={i} job={job} id={i} onClick={setSelectedJob(job)} />
+      {
+      currentJobsOnPage.map((job, i) => (
+        <Job key={i} job={job} onClick={() => {
+          console.log(i);
+          handleClickOpen();
+          selectJob(job);
+        }} />
       ))}
       <div>
         Page {activeStep + 1} of {totalPages}
