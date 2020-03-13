@@ -10,7 +10,7 @@ export default function Job({job, onClick}) {
     <Paper className={'job'} onClick={onClick}>
       <div className="jobbox">
         {/* <Typography>{id}</Typography> */}
-        <Typography variant="h6">{job.title}</Typography>
+        <Typography variant="h6" component="h3">{job.title}</Typography>
         <Typography>{job.company}</Typography>
         <Typography>{job.location}</Typography>
       </div>

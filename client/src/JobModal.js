@@ -6,6 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
+import Typography from '@material-ui/core/Typography';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -28,13 +29,13 @@ export default function JobModal({job, open, handleClose}) {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle id="alert-dialog-slide-title">
-          {job.title}
-          {job.title}
+          <Typography variant="h6" component="h3">{job.title}</Typography>
+          <Typography>{job.company}</Typography>
           <img className={'detail-logo'} src={job.company_logo} alt={job.title} />
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            {job.description}}
+          <DialogContentText id="alert-dialog-slide-description" 
+          dangerouslySetInnerHTML={{__html: job.description}}>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

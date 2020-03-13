@@ -2,6 +2,15 @@ body {
   margin: 20px 40px;
 }
 
+#alert-dialog-slide-title {
+  display: flex;
+  flex-direction: row;
+}
+
+.detail-logo {
+  height: 50px;
+}
+
 .jobbox {
   text-align: left;
 }
