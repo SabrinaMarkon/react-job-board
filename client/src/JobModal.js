@@ -12,6 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function JobModal({job, open, handleClose}) {
+
   if (!job.title) {
     return <div />
   }
@@ -26,20 +27,25 @@ export default function JobModal({job, open, handleClose}) {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title">{"Use Google's location service?"}</DialogTitle>
+        <DialogTitle id="alert-dialog-slide-title">
+          {job.title}
+          {job.title}
+          <img className={'detail-logo'} src={job.company_logo} alt={job.title} />
+        </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Let Google help apps determine location. This means sending anonymous location data to
-            Google, even when no apps are running.
+            {job.description}}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Disagree
+            Close
           </Button>
-          <Button onClick={handleClose} color="primary">
-            Agree
-          </Button>
+          <a href={job.url} target="_blank">
+            <Button onClick={handleClose} color="primary">
+              Apply
+            </Button>
+          </a>
         </DialogActions>
       </Dialog>
     </div>
