@@ -34,7 +34,7 @@ export default function JobModal({job, open, handleClose}) {
               <Typography variant="h6" component="h3">{job.title}</Typography>
               <Typography>{job.company}</Typography>
             </div>
-            <img className={'detail-logo'} src={job.company_logo} alt={job.title} />
+            <img className="joblogo" src={job.company_logo} alt={job.title} />
           </div>
         </DialogTitle>
         <DialogContent>
@@ -46,8 +46,8 @@ export default function JobModal({job, open, handleClose}) {
           <Button onClick={handleClose} color="primary">
             Close
           </Button>
-          <a href={job.url} target="_blank" rel="noopener noreferrer">
-            <Button onClick={handleClose} color="primary">
+          <a href={job.url} target="_blank" rel="noopener noreferrer" style={{textDecoration: 'none'}}>
+            <Button onClick={handleClose} color="primary" id="applybutton">
               Apply
             </Button>
           </a>

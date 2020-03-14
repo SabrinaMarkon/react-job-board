@@ -5,10 +5,7 @@ body {
 .jobandlogo {
   display: flex;
   justify-content: space-between;
-}
-
-.detail-logo {
-  max-width: 33%;
+  align-items: flex-start;
 }
 
 .jobbox {
@@ -36,4 +33,16 @@ body {
 
 .job-dialog {
   padding: 30px 50px;
+}
+
+@media(min-width: 200px) {
+  .joblogo {
+    max-width: 200px;
+  }
+}
+
+@media(min-width: 700px) {
+  .joblogo {
+    max-width: 150px;
+  }
 }
