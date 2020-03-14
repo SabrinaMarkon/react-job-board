@@ -36,12 +36,13 @@ export default function Jobs({ jobs }) {
   return (
     <div className="App">
       <JobModal open={open} job={selectedJob} handleClose={handleClose} />
-      <Typography variant="h3" component="h1">
-        Entry Level Software Jobs for UoPeople Students
-      </Typography>
-      <Typography variant="h6" component="h2">
-        Found {totalJobs} Jobs
-      </Typography>
+        <Typography variant="h4" component="h1">
+          Entry Level Software Jobs for UoPeople Students and Alumni
+        </Typography>
+        <Typography variant="h6" component="h2">
+          Found {totalJobs} Jobs
+        </Typography>
+        <img id="uopeoplelogo" src="logo_uopeople.png" alt="University of the People Computer Science" />
       {
       currentJobsOnPage.map((job, i) => (
         <Job key={i} job={job} onClick={() => {

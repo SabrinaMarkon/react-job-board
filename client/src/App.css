@@ -2,6 +2,12 @@ body {
   margin: 20px 40px;
 }
 
+#uopeoplelogo {
+  max-width: 200px;
+  float: right;
+  margin-top: -70px;
+}
+
 .jobandlogo {
   display: flex;
   justify-content: space-between;
