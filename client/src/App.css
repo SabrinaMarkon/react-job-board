@@ -2,13 +2,13 @@ body {
   margin: 20px 40px;
 }
 
-#alert-dialog-slide-title {
+.jobandlogo {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
 }
 
 .detail-logo {
-  height: 50px;
+  max-width: 33%;
 }
 
 .jobbox {

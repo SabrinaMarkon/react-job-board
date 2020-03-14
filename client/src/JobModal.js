@@ -29,9 +29,13 @@ export default function JobModal({job, open, handleClose}) {
         aria-describedby="alert-dialog-slide-description"
       >
         <DialogTitle id="alert-dialog-slide-title">
-          <Typography variant="h6" component="h3">{job.title}</Typography>
-          <Typography>{job.company}</Typography>
-          <img className={'detail-logo'} src={job.company_logo} alt={job.title} />
+          <div className="jobandlogo">
+            <div>
+              <Typography variant="h6" component="h3">{job.title}</Typography>
+              <Typography>{job.company}</Typography>
+            </div>
+            <img className={'detail-logo'} src={job.company_logo} alt={job.title} />
+          </div>
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description" 
@@ -42,7 +46,7 @@ export default function JobModal({job, open, handleClose}) {
           <Button onClick={handleClose} color="primary">
             Close
           </Button>
-          <a href={job.url} target="_blank">
+          <a href={job.url} target="_blank" rel="noopener noreferrer">
             <Button onClick={handleClose} color="primary">
               Apply
             </Button>
