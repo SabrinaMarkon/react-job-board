@@ -1,11 +1,14 @@
 body {
   margin: 20px 40px;
+  background: #535353;
+  color: #fff;
 }
 
 #uopeoplelogo {
   max-width: 200px;
   float: right;
   margin-top: -70px;
+  border: 0;
 }
 
 .jobandlogo {
@@ -39,6 +42,31 @@ body {
 
 .job-dialog {
   padding: 30px 50px;
+}
+
+#pagenum {
+  margin-bottom: 1rem;
+}
+
+/* Footer */
+.madewithlove {
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+}
+.madewithlove a {
+  color: #ff006a;
+  text-decoration: none;
+}
+.madewithlove a:hover {
+  color: #fff;
+}
+.madewithlove__heart {
+  color: #ff006a;
+}
+.madewithlove__heart:hover {
+  color: #fff;
 }
 
 @media(min-width: 200px) {

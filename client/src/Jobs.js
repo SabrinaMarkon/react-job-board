@@ -36,13 +36,14 @@ export default function Jobs({ jobs }) {
   return (
     <div className="App">
       <JobModal open={open} job={selectedJob} handleClose={handleClose} />
-        <Typography variant="h4" component="h1">
-          Entry Level Software Jobs for UoPeople Students and Alumni
-        </Typography>
-        <Typography variant="h6" component="h2">
-          Found {totalJobs} Jobs
-        </Typography>
-        <img id="uopeoplelogo" src="logo_uopeople.png" alt="University of the People Computer Science" />
+      <Typography variant="h4" component="h1">
+        Software Jobs for UoPeople Students and Alumni
+      </Typography>
+      <Typography variant="h6" component="h2">
+        Found {totalJobs} Jobs
+      </Typography>
+      <a href="https://infl.tv/hvno" target="_blank" rel="noopener noreferrer"><img id="uopeoplelogo" 
+        src="logo_uopeople.png" alt="University of the People Computer Science" /></a>
       {
       currentJobsOnPage.map((job, i) => (
         <Job key={i} job={job} onClick={() => {
@@ -51,7 +52,7 @@ export default function Jobs({ jobs }) {
           selectJob(job);
         }} />
       ))}
-      <div>
+      <div id="pagenum">
         Page {activeStep + 1} of {totalPages}
       </div>
       <MobileStepper
@@ -72,6 +73,10 @@ export default function Jobs({ jobs }) {
           </Button>
         }
       />
+    <footer class="madewithlove">
+    &copy;2020 Made with <span class="madewithlove__heart" aria-hidden="true">❤</span> for my fellow University of the People students by <a href="http://sabrinamarkon.com" 
+    target="_blank" rel="noopener noreferrer" class="madewithlove__name">Sabrina Markon</a>, BSc Computer Science Graduate, 2019.
+    </footer>
     </div>
   );
 }
