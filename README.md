@@ -35,7 +35,7 @@ For Mac or Linux, install Redis, then use the redis-cli command (instead of the 
 START PROJECT UP:
 
 In /client, run:
-yarn start (starts the frontend)
+npm run start (starts the frontend)
 
 In root, run:
 node worker/index.js (starts the cron service)

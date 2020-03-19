@@ -73,9 +73,9 @@ export default function Jobs({ jobs }) {
           </Button>
         }
       />
-    <footer class="madewithlove">
-    &copy;2020 Made with <span class="madewithlove__heart" aria-hidden="true">❤</span> for my fellow University of the People students by <a href="http://sabrinamarkon.com" 
-    target="_blank" rel="noopener noreferrer" class="madewithlove__name">Sabrina Markon</a>, BSc Computer Science Graduate, 2019.
+    <footer className="madewithlove">
+    &copy;2020 Made with <span className="madewithlove__heart" aria-hidden="true">❤</span> for my fellow University of the People students by <a href="http://sabrinamarkon.com" 
+    target="_blank" rel="noopener noreferrer" className="madewithlove__name">Sabrina Markon</a>, BSc Computer Science Graduate, 2019.
     </footer>
     </div>
   );

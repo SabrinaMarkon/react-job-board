@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Jobs from './Jobs';
 
-const JOB_API_URL = 'http://localhost:3001/jobs';
+const JOB_API_URL = '/jobs';
 
 // const mockJobs = [
 //   {title: 'Front-end Developer', company: 'Google'},
@@ -13,7 +13,6 @@ const JOB_API_URL = 'http://localhost:3001/jobs';
 async function fetchJobs(callbackSetJobsList) {
   const response = await fetch(JOB_API_URL);
   const json = await response.json();
-  // console.log(json);
   callbackSetJobsList(json);
 }
 
