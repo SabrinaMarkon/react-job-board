@@ -2,13 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Jobs from './Jobs';
 
-const JOB_API_URL = '/jobs';
-
-// const mockJobs = [
-//   {title: 'Front-end Developer', company: 'Google'},
-//   {title: 'Java Developer', company: 'Microsoft'},
-//   {title: 'UI/UX Designer', company: 'GitHub'}
-// ];
+// We SEE the job site on port 3000 but it fetches the jobs from port 3001!
+const JOB_API_URL = 'http://localhost:3001/jobs'; // api/index.js url!
 
 async function fetchJobs(callbackSetJobsList) {
   const response = await fetch(JOB_API_URL);
