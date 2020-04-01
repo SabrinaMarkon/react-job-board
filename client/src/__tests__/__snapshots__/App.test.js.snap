@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the App snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="App"
+    >
+      <div />
+      <h1
+        class="MuiTypography-root MuiTypography-h4"
+      >
+        Software Jobs for UoPeople Students and Alumni
+      </h1>
+      <h2
+        class="MuiTypography-root MuiTypography-h6"
+      >
+        Found 0 Jobs
+      </h2>
+      <a
+        href="https://infl.tv/hvno"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="University of the People Computer Science"
+          id="uopeoplelogo"
+          src="logo_uopeople.png"
+        />
+      </a>
+      <div
+        id="pagenum"
+      >
+        Page 1 of 0
+      </div>
+      <div
+        class="MuiPaper-root MuiMobileStepper-root MuiMobileStepper-positionStatic MuiPaper-elevation0"
+      >
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall Mui-disabled Mui-disabled"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"
+              />
+            </svg>
+            Back
+          </span>
+        </button>
+        <div
+          aria-valuenow="0"
+          class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiMobileStepper-progress MuiLinearProgress-determinate"
+          role="progressbar"
+        >
+          <div
+            class="MuiLinearProgress-bar MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate"
+            style="transform: translateX(-100%);"
+          />
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textSizeSmall MuiButton-sizeSmall"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="MuiButton-label"
+          >
+            Next
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root"
+              focusable="false"
+              role="presentation"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+      <footer
+        class="madewithlove"
+      >
+        ©2020 Made with 
+        <span
+          aria-hidden="true"
+          class="madewithlove__heart"
+        >
+          ❤
+        </span>
+         for my fellow University of the People students by 
+        <a
+          class="madewithlove__name"
+          href="http://sabrinamarkon.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Sabrina Markon
+        </a>
+        , BSc Computer Science Graduate, 2019.
+      </footer>
+    </div>
+  </div>
+</DocumentFragment>
+`;

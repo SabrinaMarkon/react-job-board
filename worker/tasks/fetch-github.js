@@ -42,7 +42,6 @@ async function fetchGitHub() {
       !jobDescription.includes('sr.') &&
       !jobDescription.includes('manager') &&
       !jobDescription.includes('architect'));
-    // return (jobTitle.includes('junior') || jobTitle.includes('entry') || jobTitle.includes('intermediate'));
   });
 
   console.log('Filtered down to', juniorJobs.length, 'junior level jobs');

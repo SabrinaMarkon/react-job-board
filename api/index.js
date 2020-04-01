@@ -17,7 +17,8 @@ app.get('/jobs', async (req, res) => {
   for (job in jobs) {
     console.log(job,jobs[job].title);
   }
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // CORS.
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // CORS (local dev environment).
+  // res.header("Access-Control-Allow-Origin", "http://sabrinamarkon.com:3000"); // CORS.
   return res.send(jobs);
 });
 

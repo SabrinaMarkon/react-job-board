@@ -3,7 +3,8 @@ import './App.css';
 import Jobs from './Jobs';
 
 // We SEE the job site on port 3000 but it fetches the jobs from port 3001!
-const JOB_API_URL = 'http://localhost:3001/jobs'; // api/index.js url!
+const JOB_API_URL = 'http://localhost:3001/jobs'; // api/index.js url! (local dev environment).
+// const JOB_API_URL = 'http://sabrinamarkon.com:3001/jobs'; // api/index.js url!
 
 async function fetchJobs(callbackSetJobsList) {
   const response = await fetch(JOB_API_URL);
