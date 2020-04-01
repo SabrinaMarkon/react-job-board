@@ -3,12 +3,12 @@ const express = require('express');
 const app = express();
 const port = 3001;
 const redis = require('redis');
+let client;
 if (process.env.REDIS_URL) {
-  const client = redis.createClient(process.env.REDIS_URL);
+  client = redis.createClient(process.env.REDIS_URL);
 } else {
-  const client = redis.createClient();
+  client = redis.createClient();
 }
-
 const { promisify } = require("util");
 const getAsync = promisify(client.get).bind(client); // Get jobs from redis.
 // const setAsync = promisify(client.set).bind(client); // Add jobs to redis (SET).

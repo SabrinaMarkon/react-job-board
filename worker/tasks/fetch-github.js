@@ -1,10 +1,11 @@
 // node-fetch gives node the fetch method the same as client-side fetch.
 const fetch = require('node-fetch');
 const redis = require('redis');
+let client;
 if (process.env.REDIS_URL) {
-  const client = redis.createClient(process.env.REDIS_URL);
+  client = redis.createClient(process.env.REDIS_URL);
 } else {
-  const client = redis.createClient();
+  client = redis.createClient();
 }
 const { promisify } = require("util"); // converts callbacks to promises.
 // const getAsync = promisify(client.get).bind(client); // GET jobs from redis.
