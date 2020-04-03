@@ -1,5 +1,5 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import App from "../App";
 
@@ -44,4 +44,13 @@ it("renders the heart in the footer", () => {
   const { getByText } = render(<App />);
   const heartElement = getByText(/❤/);
   expect(heartElement).toBeInTheDocument();
+});
+
+it("goes to the next page when the next button is clicked", () => {
+  const { getByText } = render(<App />);
+  // page x of y start text:
+  const pageNumText = getByText(/Page \d+ of \d+/);
+  const nextButton = getByText(/Next/);
+  fireEvent.click(nextButton);
+  expect(pageNumText.textContent).toBe(/Page 2 of \d+/);
 });
