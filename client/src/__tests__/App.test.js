@@ -63,15 +63,15 @@ it("goes to page 2 when the next button is clicked", () => {
   });
 });
 
-// it("goes to page 1 when the back button is clicked", () => {
-//   const { getByText, getByRole, debug } = render(<App />);
-//   debug();
-//   act(async () => {
-//     const backButton = getByRole('button', { name: /Back/i });
-//     fireEvent.click(backButton);
-//     // page x of y text after Back button is clicked:
-//     const pageNumText = await waitForElement(() => getByText(/Page 1 of \d+/i));
-//     expect(pageNumText).toBeInTheDocument();
-//   });
-// });
+it("goes to page 1 when the back button is clicked", () => {
+  const { getByText, getByRole, debug } = render(<App />);
+  // debug();
+  act(async () => {
+    const backButton = getByRole('button', { name: /Back/i });
+    fireEvent.click(backButton);
+    // page x of y text after Back button is clicked:
+    const pageNumText = await waitForElement(() => getByText(/Page 1 of \d+/i));
+    expect(pageNumText).toBeInTheDocument();
+  });
+});
 

@@ -14,7 +14,7 @@ const { promisify } = require("util");
 const getAsync = promisify(client.get).bind(client); // Get jobs from redis.
 // const setAsync = promisify(client.set).bind(client); // Add jobs to redis (SET).
 
-// /jobs here is at port 3001! The http is port 3000 that we see!
+// jobs here is at port 3001! The http is port 3000 that we see!
 app.get('/jobs', cors(), async (req, res) => { 
   let jobs = await getAsync('github').catch((e) => console.log('Error with getAsync(): ', e.message));
   console.log(JSON.parse(jobs).length);
@@ -22,14 +22,13 @@ app.get('/jobs', cors(), async (req, res) => {
   for (job in jobs) {
     console.log(job,jobs[job].title);
   }
-  res.header("Access-Control-Allow-Origin", "*"); // CORS (local dev environment).
-  // res.header("Access-Control-Allow-Origin", "http://sabrinamarkon.com:3000"); // CORS.
+  res.header("Access-Control-Allow-Origin", "*"); // CORS
   return res.send(jobs);
 });
 
 // catch-all
 app.get('*', cors(), (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*"); // CORS (local dev environment).
+  res.header("Access-Control-Allow-Origin", "*"); // CORS
   res.send('404 Not Found');
 });
 
