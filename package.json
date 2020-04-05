@@ -4,6 +4,7 @@
   "description": "Job search app to help entry level software engineers and developers to find their first job.",
   "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
     "cron": "^1.8.2",
     "eslint": "^6.8.0",
     "express": "^4.17.1",

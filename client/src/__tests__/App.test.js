@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from "react";
 import { render, cleanup, fireEvent, waitForDomChange, waitForElement } from "@testing-library/react";
 import "@testing-library/jest-dom";
@@ -65,3 +69,4 @@ it("goes to page 1 when the back button is clicked", async () => {
   const pageNumText = await waitForElement(() => getByText(/Page 1 of \d+/i));
   expect(pageNumText).toBeInTheDocument();
 });
+
